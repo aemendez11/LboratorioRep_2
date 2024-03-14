@@ -145,6 +145,7 @@ namespace LboratorioRep_2
         {
             cargar_alquileres();
             información.Clear();
+            if(información.Count==0){
             foreach (Alquiler alquiler in alquileres)
             {
                 Clientes clientess = clientes.FirstOrDefault(c => c.Nit == alquiler.Nit);
@@ -164,6 +165,7 @@ namespace LboratorioRep_2
                         información.Add(informacion_Alquiler);
                     }
                 }
+            }
             }
             int mayor =alquileres.Max(a => a.Kilometros);
             Informacion_alquiler informacion_Alquiler1 = información.OrderByDescending(a=> a.Total).First();
